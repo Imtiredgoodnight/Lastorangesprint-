@@ -1,5 +1,5 @@
 body {
-    background-image: url("Siren1.html");
+    background-image: url("Siren2.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -26,4 +26,20 @@ img {
     height: auto;
     border-radius: 20px;
     margin-top: 20px;
+}
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  border: #e371a3 2px solid;
+  margin: 5px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.img {
+  width: 400px;
+  height: auto;
+  border-radius: 20px;
+  margin-top: 20px;
 }
