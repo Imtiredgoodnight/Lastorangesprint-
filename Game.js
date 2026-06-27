@@ -13,44 +13,40 @@ const songs = [
 
 const submitButton = document.getElementById("submit-button");
 submitButton.addEventListener("click", function() {
-    console.log("click");
     const answers = document.querySelectorAll(".answer");
-    var score = 0
-
+    var score = 0;
     for (let i = 0; i < 10; i++) {
         var correctAnswer = songs[i].toLowerCase();
         var userAnswer = answers[i].value.trim().toLowerCase();
 
-        let result = document.getElementById("result");
-
-        if (result) { //Checking if result exists (using the id) //
-            if (userAnswer == correctAnswer) {
-                result.textContent = "✅";
-                score += 100;
-            } else {
-                result.textContent = "❌Your a failure!";
-            }
+        const oldResult = document.getElementById("result-" + i);
+        if (oldResult) {
+            oldResult.remove();
         }
 
-        else { // if id does NOT exist:
-            result = document.createElement("p");
-            result.id = "result";
-            document.body.appendChild(result);
+        const result = document.createElement("p");
+        result.id = "result-" + i;
+        result.className = "result";
 
-            if (userAnswer == correctAnswer) {
-                result.textContent = "✅";
-                score += 100;
-            } else {
-                result.textContent = "❌Your a failure!";
-            }
-        } 
+        if (userAnswer == correctAnswer) {
+            result.textContent = "✅";
+            score += 100;
+        } else {
+            result.textContent = "❌Your a failure!";
+        }
 
         answers[i].parentElement.appendChild(result);
     }
+   
+    const oldScore = document.getElementById("score");
+    if (oldScore) {
+        oldScore.remove();
+    }
+
     const scoreDisplay = document.createElement("h2");
+    scoreDisplay.id = "score";
     scoreDisplay.textContent = "Score: " + score;
     document.body.appendChild(scoreDisplay);
     }
-    );
+);
 
-    // testing 
