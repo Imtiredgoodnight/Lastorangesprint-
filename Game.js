@@ -12,27 +12,45 @@ const songs = [
 ]
 
 const submitButton = document.getElementById("submit-button");
-submitButton.addEventListener("click", function(){
-   const answers = document.querySelectorAll(".answer");
-   var score = 0
+submitButton.addEventListener("click", function() {
+    console.log("click");
+    const answers = document.querySelectorAll(".answer");
+    var score = 0
 
-    for (let i = 0; i < 10: i++) {
+    for (let i = 0; i < 10; i++) {
         var correctAnswer = songs[i].toLowerCase();
         var userAnswer = answers[i].value.trim().toLowerCase();
 
-        var result = document.createElement("p")
+        let result = document.getElementById("result");
 
-        if (userAnswer == correctAnswer) {
-            result.textContent("✅");
-            score += 100
-        } else {
-            result.textContent("❌Your a failure!")
+        if (result) { //Checking if result exists (using the id) //
+            if (userAnswer == correctAnswer) {
+                result.textContent = "✅";
+                score += 100;
+            } else {
+                result.textContent = "❌Your a failure!";
+            }
         }
 
-        answers[i].parentElement.appendChild(result)
+        else { // if id does NOT exist:
+            result = document.createElement("p");
+            result.id = "result";
+            document.body.appendChild(result);
+
+            if (userAnswer == correctAnswer) {
+                result.textContent = "✅";
+                score += 100;
+            } else {
+                result.textContent = "❌Your a failure!";
+            }
+        } 
+
+        answers[i].parentElement.appendChild(result);
     }
     const scoreDisplay = document.createElement("h2");
     scoreDisplay.textContent = "Score: " + score;
     document.body.appendChild(scoreDisplay);
-}
-);
+    }
+    );
+
+    // testing 
