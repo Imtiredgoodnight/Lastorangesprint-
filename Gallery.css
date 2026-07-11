@@ -1,16 +1,18 @@
 body {
+    margin: 0;
     background-image: url("Siren2.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
 
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(215, 190, 232);
     text-align: center;
+}
 
+h1, h2, .gallery-con {
     padding: 20px;
-
-    background-attachment: fixed;
 }
 
 body::before {
@@ -21,49 +23,45 @@ body::before {
     z-index: -1;
 }
 
-img {
-    width: 400px;
-    height: auto;
-    border-radius: 20px;
-    margin-top: 20px;
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #333;
 }
 
-.gallery {
-  display: flex;
-  justify-content: center;
-  border: #e371a3 2px solid;
-  margin: 5px;
-  border-radius: 10px;
-  padding: 10px;
+li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 14px 20px;
 }
 
-.img {
-  width: 400px;
-  height: auto;
-  border-radius: 20px;
-  margin-top: 20px;
+li a:hover {
+    background-color: #111;
 }
 
 .gallery-con {
     width: 100%;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+    margin: 30px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
-.gallery-title {
-  font-size: 40px;
-  margin-top: 30px;
+.gallery {
+    border: 2px solid #e371a3;
+    border-radius: 10px;
+    padding: 10px;
 }
 
-.gallery-description {
-  font-size: 20px;
-  margin-top: 10px;
-  margin-bottom: 30px;
-}
-
-img{
+.gallery img {
+    width: 400px;
+    height: 250px;
     object-fit: cover;
+    border-radius: 20px;
+    display: block;
 }

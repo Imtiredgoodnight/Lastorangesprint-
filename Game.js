@@ -32,7 +32,7 @@ submitButton.addEventListener("click", function() {
             result.textContent = "✅";
             score += 100;
         } else {
-            result.textContent = "❌Your a failure!";
+            result.textContent = "❌You failed!";
         }
 
         answers[i].parentElement.appendChild(result);
